@@ -41,7 +41,7 @@ public class Reservation {
         long diff = chgeckOut.getTime() - checkIn.getTime();
 
         //Aqui convertemos o valor em dias e o retornamos
-        return TimeUnit.DAYS.convert(diff, TimeUnit.MICROSECONDS);
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
     public void updateDate(Date checkIn, Date checkOut){
@@ -59,7 +59,7 @@ public class Reservation {
                 + sdf.format(getChgeckOut())
                 + ","
                 + duration()
-                + "nights";
+                + " nights";
     }
 
 }
