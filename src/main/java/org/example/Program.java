@@ -1,10 +1,12 @@
 package org.example;
 
 import org.example.model.entities.Reservation;
+import org.example.model.exceptions.DomainException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Program {
@@ -39,8 +41,14 @@ public class Program {
         catch (ParseException e){
             System.out.println("Invalid date format");
         }
-        catch (IllegalArgumentException e){
+        catch (DomainException e){
             System.out.println("Error in reservatrion: " + e.getMessage());
+        }
+        catch (InputMismatchException e){
+            System.out.println("Error, insert a number valid for reservation");
+        }
+        catch (RuntimeException e){
+            System.out.println("Unexpected error");
         }
         sc.close();
     }
